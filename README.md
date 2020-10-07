@@ -22,7 +22,7 @@ Then, load the library and install the PI Web API R package with the install_git
 
 ```r
 library(devtools)
-install_github("osimloeff/PI-Web-API-Client-R")
+install_github("mortezamoallemi/pi-web-api-in-r")
 ```
 
 If the installation is successful, the command below will load the package:
