@@ -109,7 +109,7 @@ calculationApi <- R6Class("calculationApi",
 		},
 		getSummary = function(calculationBasis, endTime, expression, sampleInterval, sampleType, selectedFields, startTime, summaryDuration, summaryType, timeType, webId) {
 			qs <- customQueryString$new()
-			localVarPath <- paste(c(self$serviceBase, 'summary'), collapse = "")
+			localVarPath <- paste(c(self$serviceBase, '/summary'), collapse = "")
 			if (missing(calculationBasis) == FALSE && is.null(calculationBasis) == FALSE && calculationBasis != "") {
 				qs$add('calculationBasis', calculationBasis, FALSE);
 				if (is.character(calculationBasis) == FALSE) {
