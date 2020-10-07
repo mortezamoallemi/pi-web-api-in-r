@@ -1,5 +1,25 @@
 PI Web API client R package (2018)
 =========
+## Attnetion
+
+This is a personalised version of PI Web API in R, for personal use. Access the original version here: https://github.com/rbechalany/PI-Web-API-Client-R
+
+Changes I made: 
+- In "R/calculationApi.r", for the "getSummary" function, I changed:
+"localVarPath <- paste(c(self$serviceBase, '/calculation/recorded'), collapse = "")"  
+to: 
+"localVarPath <- paste(c(self$serviceBase, '/streams/', webId,'/summary'), collapse = "")"
+
+- For other functions in this file also, I think the above change is necessary. But haven't done yet.  
+
+- I also copied the function "convertToDataFrame" from the "R/dataApi.r" to this file, with minor changes, namely adding "$Value" to all the "items[[i]]"s.
+
+- Finally, I changed the returned value 
+from:
+return (contentResponse)
+to:
+dataframe <- self$convertToDataFrame(contentResponse$Items)
+return (dataframe)
 
 ## Introduction
 
