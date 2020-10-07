@@ -16,51 +16,51 @@ calculationApi <- R6Class("calculationApi",
 			self$debug <- debug
 		},
 convertToDataFrame = function(items) {
-            itemsLength <- length(items)
-            value <- array(1:itemsLength)
-            timestamp <- array(1:itemsLength)
-            unitsAbbreviation <- array(1:itemsLength)
-            good <- array(1:itemsLength)
-            questionable <- array(1:itemsLength)
-            substituted <- array(1:itemsLength)
-            for (i in 1:itemsLength) {
-                if (is.null(items[[i]]$Value) == FALSE)
-                {
-                  if (is.numeric(items[[i]]$Value) == TRUE)
-                  {
-                    value[i] <- items[[i]]$Value
-                  }
-                  else
-                  {
-                    value[i] <- items[[i]]$Value$Name
-                  }
-                }
-                if (is.null(items[[i]]$Timestamp) == FALSE)
-                {
-                  timestamp[i] <- items[[i]]$Timestamp
-                }
-                if (is.null(items[[i]]$UnitsAbbreviation) == FALSE)
-                {
-                  unitsAbbreviation[i] <- items[[i]]$UnitsAbbreviation
-                }
-                if (is.null(items[[i]]$Good) == FALSE)
-                {
-                  good[i] <- items[[i]]$Good
-                }
-                if (is.null(items[[i]]$Questionable) == FALSE)
-                {
-                  questionable[i] <- items[[i]]$Questionable
-                }
-                if (is.null(items[[i]]$Substituted) == FALSE)
-                {
-                  substituted[i] <- items[[i]]$Substituted
-                }
-            }
-
-
-            resDataFrame <- data.frame(value, timestamp, unitsAbbreviation, good, questionable, substituted)
-            return(resDataFrame)
-        },
+  itemsLength <- length(items)
+  value <- array(1:itemsLength)
+  timestamp <- array(1:itemsLength)
+  unitsAbbreviation <- array(1:itemsLength)
+  good <- array(1:itemsLength)
+  questionable <- array(1:itemsLength)
+  substituted <- array(1:itemsLength)
+  for (i in 1:itemsLength) {
+    if (is.null(items[[i]]$Value$Value) == FALSE)
+    {
+      if (is.numeric(items[[i]]$Value$Value) == TRUE)
+      {
+        value[i] <- items[[i]]$Value$Value
+      }
+      else
+      {
+        value[i] <- items[[i]]$Value$Name
+      }
+    }
+    if (is.null(items[[i]]$Value$Timestamp) == FALSE)
+    {
+      timestamp[i] <- items[[i]]$Value$Timestamp
+    }
+    if (is.null(items[[i]]$Value$UnitsAbbreviation) == FALSE)
+    {
+      unitsAbbreviation[i] <- items[[i]]$Value$UnitsAbbreviation
+    }
+    if (is.null(items[[i]]$Value$Good) == FALSE)
+    {
+      good[i] <- items[[i]]$Value$Good
+    }
+    if (is.null(items[[i]]$Value$Questionable) == FALSE)
+    {
+      questionable[i] <- items[[i]]$Value$Questionable
+    }
+    if (is.null(items[[i]]$Value$Substituted) == FALSE)
+    {
+      substituted[i] <- items[[i]]$Value$Substituted
+    }
+  }
+  
+  
+  resDataFrame <- data.frame(value, timestamp, unitsAbbreviation, good, questionable, substituted)
+  return(resDataFrame)
+},
 		getAtIntervals = function(endTime, expression, sampleInterval, selectedFields, startTime, webId) {
 			qs <- customQueryString$new()
 			localVarPath <- paste(c(self$serviceBase, '/calculation/intervals'), collapse = "")
