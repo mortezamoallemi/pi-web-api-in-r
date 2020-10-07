@@ -1,6 +1,6 @@
 PI Web API client R package (2018)
 =========
-## Attnetion
+## Attention:
 
 This is a personalised version of PI Web API in R, for personal use. Access the original version here: https://github.com/rbechalany/PI-Web-API-Client-R
 
@@ -16,10 +16,10 @@ to:
 
 - Finally, I changed the returned value 
 from:
-return (contentResponse)
+"return (contentResponse)"
 to:
-dataframe <- self$convertToDataFrame(contentResponse$Items)
-return (dataframe)
+"dataframe <- self$convertToDataFrame(contentResponse$Items)
+return (dataframe)"
 
 ## Introduction
 
