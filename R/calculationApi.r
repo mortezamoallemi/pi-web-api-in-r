@@ -230,7 +230,7 @@ convertToDataFrame = function(items) {
 			if (res$status == 409) {
 				attr(contentResponse, "className") <- "PIErrors"
 			}
-			dataframe <- self$convertToDataFrame(contentResponse)
+			dataframe <- self$convertToDataFrame(contentResponse$Items)
 			return (dataframe)
 		},
 		getAtTimes = function(expression, selectedFields, sortOrder, time, webId) {
